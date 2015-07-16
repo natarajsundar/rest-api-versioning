@@ -1,9 +1,0 @@
-com/pd/apiversions/web/AddressParamV1.class
-com/pd/apiversions/service/AddressService.class
-com/pd/apiversions/web/AddressParamV2.class
-com/pd/apiversions/Application.class
-com/pd/apiversions/domain/Hello.class
-com/pd/apiversions/web/HelloController$ValidVersion.class
-com/pd/apiversions/domain/Address.class
-com/pd/apiversions/web/AddressController.class
-com/pd/apiversions/web/HelloController.class
