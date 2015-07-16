@@ -24,22 +24,22 @@ Additionally, there is one simple /hello resource available, which did not chang
 
     GET /address
     {
-        address: "10243 Berlin"
+        address: "10243 Bangalore"
     }
 
     POST /address
-    address=10243+Berlin
+    address=10243+Bangalore
 
 ### /address (version 2)
 
     GET /address
     {
         zip: "10243",
-        town: "Berlin"
+        town: "Bangalore"
     }
 
     POST /address
-    zip=10243&town=Berlin
+    zip=10243&town=Bangalore
 
 ### /hello (version 1 and 2)
 

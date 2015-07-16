@@ -53,7 +53,7 @@ public class AddressIT {
 
     @Before
     public void prepareTestData() {
-        Address address = new Address("12043", "Berlin");
+        Address address = new Address("12043", "Bangalore");
         addressService.save(address);
     }
 
@@ -64,7 +64,7 @@ public class AddressIT {
         mockMvc.perform(get("/apiurl/v1/address").accept(APPLICATION_JSON)) //
                .andExpect(status().isOk())                                  //
                .andExpect(jsonContent())                                    //
-               .andExpect(jsonPath("$.address", is("12043 Berlin")));
+               .andExpect(jsonPath("$.address", is("12043 Bangalore")));
     }
 
     @Test
@@ -73,7 +73,7 @@ public class AddressIT {
                .andExpect(status().isOk())                                  //
                .andExpect(jsonContent())                                    //
                .andExpect(jsonPath("$.zip", is("12043")))                   //
-               .andExpect(jsonPath("$.town", is("Berlin")));
+               .andExpect(jsonPath("$.town", is("Bangalore")));
     }
 
     @Test
@@ -84,13 +84,13 @@ public class AddressIT {
 
     @Test
     public void should_respond_with_created_on_v1_url() throws Exception {
-        mockMvc.perform(post("/apiurl/v1/address").param("address", "12055 Berlin")) //
+        mockMvc.perform(post("/apiurl/v1/address").param("address", "12055 Bangalore")) //
                .andExpect(status().isAccepted());
     }
 
     @Test
     public void should_respond_with_created_on_v2_url() throws Exception {
-        mockMvc.perform(post("/apiurl/v2/address").param("zip", "12055").param("town", "Berlin")) //
+        mockMvc.perform(post("/apiurl/v2/address").param("zip", "12055").param("town", "Bangalore")) //
                .andExpect(status().isAccepted());
     }
 
@@ -101,7 +101,7 @@ public class AddressIT {
         mockMvc.perform(get("/apiheader/address").accept(APPLICATION_JSON).header("X-API-Version", "v1")) //
                .andExpect(status().isOk())                                                                //
                .andExpect(jsonContent())                                                                  //
-               .andExpect(jsonPath("$.address", is("12043 Berlin")));
+               .andExpect(jsonPath("$.address", is("12043 Bangalore")));
     }
 
     @Test
@@ -110,7 +110,7 @@ public class AddressIT {
                .andExpect(status().isOk())                                                                //
                .andExpect(jsonContent())                                                                  //
                .andExpect(jsonPath("$.zip", is("12043")))                                                 //
-               .andExpect(jsonPath("$.town", is("Berlin")));
+               .andExpect(jsonPath("$.town", is("Bangalore")));
     }
 
     @Test
@@ -129,7 +129,7 @@ public class AddressIT {
     public void should_respond_with_created_with_v1_header() throws Exception {
         mockMvc.perform(post("/apiheader/address")    //
                    .header("X-API-Version", "v1")     //
-                   .param("address", "12055 Berlin")) //
+                   .param("address", "12055 Bangalore")) //
                .andExpect(status().isAccepted());     //
     }
 
@@ -139,7 +139,7 @@ public class AddressIT {
                    post("/apiheader/address")         //
                    .header("X-API-Version", "v2")     //
                    .param("zip", "12055")             //
-                   .param("town", "Berlin"))          //
+                   .param("town", "Bangalore"))          //
                .andExpect(status().isAccepted());     //
     }
 
@@ -150,7 +150,7 @@ public class AddressIT {
         mockMvc.perform(get("/apiaccept/address").accept("application/vnd.company.app-v1+json")) //
                .andExpect(status().isOk())                                                       //
                .andExpect(content().contentType("application/vnd.company.app-v1+json"))          //
-               .andExpect(jsonPath("$.address", is("12043 Berlin")));
+               .andExpect(jsonPath("$.address", is("12043 Bangalore")));
     }
 
     @Test
@@ -159,7 +159,7 @@ public class AddressIT {
                .andExpect(status().isOk())                                                       //
                .andExpect(content().contentType("application/vnd.company.app-v2+json"))          //
                .andExpect(jsonPath("$.zip", is("12043")))                                        //
-               .andExpect(jsonPath("$.town", is("Berlin")));
+               .andExpect(jsonPath("$.town", is("Bangalore")));
     }
 
     @Test
@@ -173,7 +173,7 @@ public class AddressIT {
         mockMvc.perform(
                    post("/apiaccept/address")                         //
                    .accept("application/vnd.company.app-v1+json")     //
-                   .param("address", "12055 Berlin"))                 //
+                   .param("address", "12055 Bangalore"))                 //
                .andExpect(status().isAccepted());                     //
     }
 
@@ -183,7 +183,7 @@ public class AddressIT {
                    post("/apiaccept/address")                         //
                    .accept("application/vnd.company.app-v2+json")     //
                    .param("zip", "12055")                             //
-                   .param("town", "Berlin"))                          //
+                   .param("town", "Bangalore"))                          //
                .andExpect(status().isAccepted());                     //
     }
 
